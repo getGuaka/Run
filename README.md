@@ -1,4 +1,4 @@
-# Run [![Build Status](https://travis-ci.com/getGuaka/Run.svg?branch=master)](https://travis-ci.com/getGuaka/Run)
+# Run 🏃 [![Build Status](https://travis-ci.com/getGuaka/Run.svg?branch=master)](https://travis-ci.com/getGuaka/Run)
 
 Run provides a quick, concise way to run an external command and read its standard output and standard error.
 
