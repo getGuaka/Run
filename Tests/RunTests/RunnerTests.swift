@@ -193,9 +193,13 @@ class RunnerTests: QuickSpec {
                 CommandExecutor.currentTaskExecutor = InteractiveTaskExecutor()
                 let res = 🏃.runWithoutCapture("ls")
 
+#if os(macOS)
                 // Make it pass for now
                 // FIXME: figure out why this does not work
                 expect(res).to(equal(2))
+#else
+                expect(res).to(equal(0))
+#endif
             }
         }
     }
