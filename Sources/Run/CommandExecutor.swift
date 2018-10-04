@@ -63,7 +63,11 @@ class InteractiveTaskExecutor: TaskExecutor {
         let argv: [UnsafeMutablePointer<CChar>?] = commandParts.map{ $0.withCString(strdup) }
         defer { for case let arg? in argv { free(arg) } }
 
+#if os(macOS)
         var childFDActions: posix_spawn_file_actions_t? = nil
+#else
+        var childFDActions: posix_spawn_file_actions_t = posix_spawn_file_actions_t()
+#endif
         var outputPipe: [Int32] = [-1, -1]
 
         posix_spawn_file_actions_init(&childFDActions)
